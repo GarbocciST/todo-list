@@ -1,0 +1,21 @@
+
+
+.todos {
+    margin: 1% ;
+}
+
+.add {
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: rgb(161, 170, 170);
+}
+
+.todos-container {
+    background-color: rgba(208, 224, 224, 0.403);
+}
+
+.alert {
+    padding: 1%;
+
+    
+}   
