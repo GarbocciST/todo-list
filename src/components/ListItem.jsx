@@ -13,17 +13,17 @@ export const ListItem = ({todo}) => {
       dispatch(updateTodo(value));
     }
 
-    //* input va el checked
+    //* input va el checked: checked={(todo.done)}
 
   return (
     <>
         <li key={todo.id} className="list-group-item m-1 d-flex justify-content-between">
             
-              <span className={`spann d-flex align-self-center ${(todo.done) && "text-decoration-line-through" }`} onClick={() => onMark(todo.id)}>{todo.description}</span>
             
-            {/* <div className="mt-2">
-              <input className="form-check-input" type="checkbox" /> 
-            </div> */}
+            <div className="mt-2">
+              <input type="checkbox" onClick={() => onMark(todo.id)} className="form-check-input"/> 
+              <span className={`spann ${(todo.done) && "text-decoration-line-through" }`}  >{todo.description}</span>
+            </div>
       
             <button onClick={ () => onDelete(todo.id) } className="btn btn-danger d-flex align-self-center">Borrar</button>  
         </li>
