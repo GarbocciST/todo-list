@@ -8,10 +8,13 @@ export const TodoApp = () => {
 
   return (
     <>  
-        <h1>TodoApp: {todos.length} <small>activos: 2</small></h1>
+        <h1>TodoApp: {todos.length} 
+          <small>activos: {todos.filter( todo => !todo.done).length}</small>
+          <small className="text-muted">completados: {todos.filter( todo => todo.done).length}</small>
+          </h1> 
         <hr />
 
-        <div className="row">
+        <div className="row gx-0">
             <ListTodo todos={todos}/>
             <AddTodo />
         </div>

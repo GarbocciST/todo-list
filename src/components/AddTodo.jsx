@@ -39,7 +39,7 @@ export const AddTodo = () => {
         <form action="" onSubmit={onSubmitted} >
             <input type="text" onChange={onInputChange} value={description} name="description" className="form-control" placeholder="Agregar nueva tarea..."/>
             {
-               (!isFormValid) ? <div className="alert alert-warning m-1">Al menos 4 caracteres</div> : ""           
+               (!isFormValid) ? <div className="alert alert-warning m-1">Debe tener al menos 4 caracteres</div> : ""           
             }
             <div className="d-flex justify-content-center pt-1">
                 <button className="btn btn-primary">Agregar</button>

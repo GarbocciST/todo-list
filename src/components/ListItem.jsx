@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { deleteTodo } from "../store";
+import { deleteTodo, updateTodo } from "../store";
 
 export const ListItem = ({todo}) => {
 
@@ -8,11 +8,24 @@ export const ListItem = ({todo}) => {
     const onDelete = (value) => {
       dispatch(deleteTodo(value));
     }
+
+    const onMark = (value) => {
+      dispatch(updateTodo(value));
+    }
+
+    //* input va el checked
+
   return (
     <>
         <li key={todo.id} className="list-group-item m-1 d-flex justify-content-between">
-            <span className="align-self-center">{todo.description}</span>
-            <button onClick={ () => onDelete(todo.id) } className="btn btn-danger">Borrar</button>  
+            
+              <span className={`spann d-flex align-self-center ${(todo.done) && "text-decoration-line-through" }`} onClick={() => onMark(todo.id)}>{todo.description}</span>
+            
+            {/* <div className="mt-2">
+              <input className="form-check-input" type="checkbox" /> 
+            </div> */}
+      
+            <button onClick={ () => onDelete(todo.id) } className="btn btn-danger d-flex align-self-center">Borrar</button>  
         </li>
     </>
   )

@@ -5,7 +5,7 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
         todos: [],
-        done: false, // 'completed', 'active'
+        // done: false, // 'completed', 'active'
 
     },
     reducers: {
@@ -15,12 +15,16 @@ export const todoSlice = createSlice({
             state.todos.push(payload);
         },
         
-        updateToDone: (state,  {payload}  ) => {
-            state.done = true;
-        },
-        
-        updateToActive: (state,  {payload}  ) => {
-            state.done = false;
+        updateTodo: (state,  {payload}  ) => {
+           state.todos = state.todos.map( todo =>{
+                if (todo.id === payload) {
+                    return {
+                        ...todo,
+                        done: !todo.done,
+                    }
+                }
+                return todo
+            });
         },
         
         deleteTodo: (state,  {payload}  ) => {
@@ -31,4 +35,4 @@ export const todoSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {  createTodo, updateToDone,  updateToActive, deleteTodo } = todoSlice.actions;
+export const {  createTodo, updateTodo,  updateToActive, deleteTodo } = todoSlice.actions;

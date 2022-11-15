@@ -15,7 +15,17 @@
 }
 
 .alert {
-    padding: 1%;
-
-    
+    padding: 1%; 
 }   
+
+.spann {
+    margin-left: 10px;
+}
+
+.btn {
+    max-height: 38px;
+}
+
+small {
+    margin-left: 3%;
+}

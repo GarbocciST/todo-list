@@ -4,14 +4,14 @@ import { todoSlice } from "./todos";
 const localStorageMiddleware = ({ getState }) => {
     return next => action => {
       const result = next(action);
-      sessionStorage.setItem('applicationState', JSON.stringify(getState()));
+      localStorage.setItem('applicationState', JSON.stringify(getState()));
       return result;
     };
   };
 
 const reHydrateStore = () => {
-    if (sessionStorage.getItem('applicationState') !== null) {
-        return JSON.parse(sessionStorage.getItem('applicationState')); // re-hydrate the store
+    if (localStorage.getItem('applicationState') !== null) {
+        return JSON.parse(localStorage.getItem('applicationState')); // re-hydrate the store
     }
 };
 
