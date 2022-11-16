@@ -17,14 +17,13 @@ export const ListItem = ({todo}) => {
 
   return (
     <>
-        <li key={todo.id} className="list-group-item m-1 d-flex justify-content-between">
+        <li key={todo.id} className="list-group-item m-1 d-flex align-items-center justify-content-between">
             
-            
-            <div className="mt-2">
-              <input type="checkbox" onClick={() => onMark(todo.id)} className="form-check-input"/> 
+            <div>
+              <input type="checkbox" onClick={() => onMark(todo.id)} defaultChecked={(todo.done)} className="form-check-input"/> 
               <span className={`spann ${(todo.done) && "text-decoration-line-through" }`}  >{todo.description}</span>
             </div>
-      
+                 
             <button onClick={ () => onDelete(todo.id) } className="btn btn-danger d-flex align-self-center">Borrar</button>  
         </li>
     </>
